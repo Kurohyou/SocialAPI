@@ -2,7 +2,7 @@
 const router = require('express').Router();
 
 const { User, Thought } = require('../models');
-const reactionRoutes = require('./reaction');
+const reactionRoutes = require('./subRoutes/reaction');
 
 router.use('/:thoughtID/reactions',(req,res,next) => {
   req.reactionParams = req.params;
@@ -17,7 +17,7 @@ router.get('/:thoughtID/', async (req,res) => {
     res.json(thought);
   }catch(err){
     console.error(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -27,7 +27,7 @@ router.get('/', async (req,res) => {
     res.json(thoughts);
   }catch(err){
     console.error(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -47,7 +47,7 @@ router.post('/', async (req,res) => {
     res.json(thought);
   }catch(err){
     console.error(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -61,7 +61,7 @@ router.put('/:thoughtID', async (req,res) => {
     res.json(thought);
   }catch(err){
     console.error(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -73,7 +73,7 @@ router.delete('/:thoughtID', async (req,res) => {
     res.json(thought);
   }catch(err){
     console.error(err);
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
